@@ -10,6 +10,5 @@ def fizzbuzz():
             print("Buzz", end="")
         else:
             print("{}".format(i), end="")
-        
         # Hər elementdən sonra mütləq boşluq qoyuruq
         print(" ", end="")

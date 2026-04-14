@@ -1,12 +1,14 @@
 #!/usr/bin/python3
+
 def safe_print_list(my_list=[], x=0):
     count = 0
+
     for i in range(x):
         try:
-            # {:d} istifadə etməyin, çünki siyahıda string də ola bilər
-            print("{}".format(my_list[i]), end="")
+            print(my_list[i], end="")
             count += 1
-        except IndexError:
+        except:
             break
-    print("") # BU HƏMİŞƏ DÖNGƏDƏN ÇÖLDƏ OLMALIDIR
+
+    print()
     return count

@@ -1,4 +1,3 @@
 #!/bin/bash
-# Skriptə ötürülən birinci arqumenti (URL) yoxlayır
-url=$1
-curl -s -o /dev/null -w "%{size_download}\n" "$url"
+# Query URL and display response body size in bytes
+curl -s "$1" | wc -c

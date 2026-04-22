@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 A script that takes in a URL and an email, sends a POST request
-with the email as a parameter, and displays the body of the response.
+with the email as a parameter, and displays the response body.
 """
 import urllib.parse
 import urllib.request
@@ -12,14 +12,13 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
 
-    # Məlumatı lüğət (dictionary) şəklində hazırlayırıq
+    # Məlumatı hazırlayırıq
     values = {'email': email}
 
-    # Məlumatı URL formatına (email=test@test.com) salırıq və baytlara çeviririk
-    data = urllib.parse.urlencode(values)
-    data = data.encode('ascii')
+    # Məlumatı encode edirik (79 simvol limitini gözləyərək)
+    data = urllib.parse.urlencode(values).encode('ascii')
 
-    # POST sorğusunu göndəririk
+    # POST sorğusunu yaradırıq
     req = urllib.request.Request(url, data)
 
     with urllib.request.urlopen(req) as response:
